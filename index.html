@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página WIN Completa</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Anton&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Iconos (FontAwesome) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ======= RESET ======= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: orangered; font-family: 'Rubik Mono One', sans-serif; color: #fff; }
+
+/* ======= TOP HEADER ======= */
+.top-header {
+  background: #000;
+  color: #fff;
+  text-align: right;
+  padding: 4px 20px;
+  font-size: 0.7rem;
+}
+.top-header a { color: #fff; text-decoration: none; transition: color 0.3s ease, transform 0.3s ease; }
+.top-header a:hover { color: orangered; transform: scale(1.1); }
+
+/* ======= CABECERA ======= */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  height: 70px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1002;
+}
+.logo { height: 50px; }
+
+nav { height: 100%; flex: 1; display: flex; justify-content: flex-end; align-items: center; }
+
+.menu { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+.menu li { display: flex; justify-content: center; align-items: center; }
+.menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+  height: 100%;
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 0;
+  height: 3px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.menu a:hover::after { width: 100%; }
+.menu a:hover { transform: scale(1.1); }
+.menu a.equipos { background: orangered; color: #fff; }
+.menu a.equipos:hover { color: #000; }
+.menu a.info { background: #000; color: #fff; }
+.menu a.info:hover { color: orangered; }
+
+/* ======= BOTÓN HAMBURGUESA ======= */
+.hamburger { display: none; flex-direction: column; justify-content: space-between; width: 25px; height: 18px; cursor: pointer; position: relative; z-index: 1003; }
+.hamburger span { display: block; height: 3px; background: #000; border-radius: 2px; transition: all 0.3s ease; }
+.whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      font-family: Arial, sans-serif;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+
+```
+.whatsapp-float:hover {
+  transform: scale(1.05);
+}
+
+/* Icono de WhatsApp */
+.whatsapp-icon {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+/* Contenedor del texto */
+.whatsapp-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.whatsapp-text small {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.whatsapp-text strong {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* ======= VISTA MÓVIL ======= */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .menu {
+    position: fixed;
+    top: 70px;
+    right: -250px;
+    width: 250px;
+    height: calc(100% - 70px);
+    flex-direction: column;
+    background: #fff;
+    transition: right 0.3s ease;
+    padding-top: 20px;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    z-index: 1001;
+  }
+  .menu.open { right: 0; }
+  .menu a { width: 100%; padding: 15px; color: orangered; }
+  .menu a::after { bottom: 0; height: 2px; background: orangered; }
+  .menu a.equipos, .menu a.info { background: none; color: orangered; }
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+/* ======= CARRUSEL DE IMÁGENES ======= */
+.carousel { position: relative; width: 100%; max-width: 1200px; margin: 20px auto; overflow: hidden; background: orangered; z-index: 1; }
+.carousel-track { display: flex; transition: transform 0.8s ease; }
+.slide-img { min-width: 100%; display: flex; }
+.slide-img img { width: 50%; object-fit: cover; background: orangered; }
+@media (max-width: 768px) {
+  .slide-img { flex-direction: column; }
+  .slide-img img { width: 100%; height: 250px; }
+}
+
+/* ======= SLIDER DE TEXTO (INFO) ======= */
+.hero { max-width:1200px; margin:auto; padding:20px; font-family:'Anton',sans-serif; }
+.title h1{
+  font-size:clamp(28px,6vw,54px);
+  line-height:1.1;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-top:20px;
+}
+.title h1 .wing{ color:#2b1b10; }
+
+.slider-wrap{
+  position:relative;
+  margin-top:20px;
+  overflow:hidden;
+  border-radius:12px;
+  background:orangered;
+}
+.slider-info{ display:flex; transition:transform 0.4s ease-in-out; }
+.slide-info{
+  flex:0 0 100%; padding:20px; text-align:center; min-height:350px;
+}
+.slide-info h2{ font-size:1.4rem; margin-bottom:10px; letter-spacing:2px; text-transform:uppercase; }
+.slide-info p{ font-size:1rem; line-height:1.4; margin-bottom:8px; }
+.controls{ position:absolute; top:50%; left:0; right:0; display:flex; justify-content:space-between; transform:translateY(-50%); padding:0 10px; }
+.ctrl-btn{ background:rgba(0,0,0,0.3); border:none; color:#fff; font-size:20px; padding:10px; border-radius:50%; cursor:pointer; }
+.dots{ text-align:center; margin-top:10px; }
+.dot{ display:inline-block; width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.4); margin:0 5px; cursor:pointer; }
+.dot.active{ background:#fff; }
+
+/* ======= FOOTER ======= */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif; /* tipografía normal */
+  font-weight: normal;
+}
+footer a { color: #fff; text-decoration: none; font-size: 14px; }
+footer a:hover { color: #FF4500; }
+.footer-logo img { width: 180px; max-width: 100%; display: block; margin-bottom: 15px; }
+.footer-list, .footer-info { list-style: none; padding-left: 0; margin-bottom: 0; }
+.footer-list li, .footer-info li { margin-bottom: 6px; padding-left: 0; font-size: 14px; position: static; }
+.footer-list li::before { content: "•"; color: #FF4500; margin-right: 6px; }
+.footer-title, .footer-subtitle { font-weight: bold; margin: 10px 0 5px 0; font-size: 14px; }
+.social-icons { display: flex; gap: 12px; margin-bottom: 20px; }
+.social-icons a { color: #fff; font-size: 24px; transition: color 0.3s; }
+.social-icons a:hover { color: #FF4500; }
+.btn-whatsapp { background: #25d366; color: #fff; font-weight: bold; text-decoration: none; padding: 10px 15px; display: flex; align-items: stretch; width: auto; transition: background 0.3s; }
+.btn-whatsapp:hover { background: #1ebe57; text-decoration: none; }
+.btn-whatsapp .whatsapp-icon { font-size: 2em; display: flex; align-items: center; justify-content: center; }
+.btn-whatsapp .al-WHATSAPP { font-size: 14px; font-weight: normal; line-height: 1; margin-top: 0; font-family: Arial, sans-serif; }
+.btn-llamada { background: #ff4500; color: #fff; font-weight: bold; text-align: center; padding: 10px 15px; width: 100%; transition: background 0.3s; }
+.btn-llamada:hover { background: #e03e00; text-decoration: none; }
+
+/* ======= FOOTER END ======= */
+.footer-end {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}
+.footer-end i { color: #FF4500; font-size: 20px; }
+.footer-end span { font-family: Arial, sans-serif; font-weight: normal; }
+.footer-end * { font-family: Arial, sans-serif !important; font-weight: normal !important; }
+
+/* ======= Responsive ajustes botones ======= */
+@media (max-width: 767px) {
+  .social-icons { justify-content: center; margin-top: 10px; margin-bottom: 20px; }
+  .d-flex.flex-wrap.gap-2.mt-3 { flex-direction: column; gap: 10px; align-items: center; }
+  .btn-whatsapp { width: auto !important; max-width: 260px; }
+  .btn-llamada { width: 100%; }
+}
+
+/* ======= PROTECCIÓN DE CONTENIDO ======= */
+body, header, footer, .hero, .carousel, .slide-info {
+  user-select: none;          
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Barra superior -->
+<div class="top-header">
+  <a href="tel:+51907800704">Llamar al +51 907 800 704</a>
+</div>
+
+<!-- Menú principal -->
+<header>
+  <img src="logo.png" alt="Logo de la empresa" class="logo">
+  <nav>
+    <ul class="menu" id="menu">
+      <li><a href="https://wa.me/51907800704" target="_blank">Internet</a></li>
+      <li><a href="https://wa.me/51907800704" target="_blank">Duo Internet + Cable TV</a></li>
+      <li><a href="https://wa.me/51907800704" target="_blank" class="equipos">Equipos Gratis</a></li>
+      <li><a href="https://wa.me/51907800704" target="_blank" class="info">Información</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+
+<!-- Carrusel de imágenes -->
+<div class="carousel">
+  <div class="carousel-track" id="track">
+    <div class="slide-img"><img src="gamer1.jpg"><img src="gamer2.jpg"></div>
+    <div class="slide-img"><img src="gamer3.jpg"><img src="gamer4.jpg"></div>
+    <div class="slide-img"><img src="gamer5.jpg"><img src="gamer6.jpg"></div>
+  </div>
+</div>
+
+<!-- Slider de texto -->
+<div class="hero">
+  <div class="title">
+    <h1>Aprende más sobre el Internet <span class="wing">100% fibra óptica de WIN</span></h1>
+  </div>
+  <div class="slider-wrap">
+    <div class="slider-info" id="slider">
+      <div class="slide-info">
+        <h2>Beneficios de conexión <span class="wing">100% fibra óptica</span></h2>
+        <p>La fibra óptica tiene múltiples ventajas y beneficios En comparación con otros tipos de conexiones coma entre ellas destacan:</p> 
+
+        <p>-ALTA VELOCIDAD: diversos estudios han demostrado que la fibra óptica es 20 veces más rápida que otros tipos de conexiones.</p> 
+
+        <p>-SIMETRÍA: contar con velocidades de carga y descarga iguales es un beneficio que solo la fibra óptica puede darte, sobre todo si realizas trabajos o actividades que requieren enviar y recibir altas transmisiones de datos, como el gaming o la edición de video.</p>
+
+        <p>-ESTABILIDAD: permite disponer de una conexión estable y que soporte las necesidades de los hogares modernos donde tenemos muchos dispositivos conectados a internet.</p>
+      </div>
+      <div class="slide-info">
+        <h2>¿Qué es la fibra óptica de WIN?</h2>
+        <p>La fibra óptica WIN es el medio por el cual brindamos nuestro servicio de internet Hogar, el cual ocupa el primer lugar de forma ininterrumpida en el puntaje  ISP speed Index de Netflix desde junio del 2022.
+
+Nuestra red propia de fibra óptica bajo arquitectura GPON, está en constante crecimiento, por ahora abarcamos más de 40 distritos en Lima metropolitana, 4 provincias de Lima y contamos con presencia en cuatro provincias a nivel nacional.</p>
+      </div>
+      <div class="slide-info">
+        <h2>¿Qué es la fibra óptica?</h2>
+        <p>La fibra óptica es un medio de transmisión de datos que hace uso de filamentos de vidrio o plástico para enviar y recibir pulsos de luz láser o led que viajan a alta velocidad.
+
+ A diferencia de los cables de cobre, la fibra óptica no se ve afectada por interferencias electromagnéticas, lo que permite alcanzar altas velocidades de transmisión tanto en la subida como en la bajada de datos (conexión simétrica).</p>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="ctrl-btn" id="prev">◀</button>
+      <button class="ctrl-btn" id="next">▶</button>
+    </div>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <!-- Columna 1 -->
+      <div class="col-md-4 mb-4 d-flex flex-column align-items-start">
+        <div class="footer-logo mb-3 text-center text-md-start w-100">
+          <img src="logo2.png" alt="Logo WIN">
+        </div>
+
+        <div class="social-icons d-md-none">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <p class="footer-title">Información de Abonados y Usuarios</p>
+        <ul class="footer-list">
+          <li><a href="#">¿Cómo reclamar?</a></li>
+          <li><a href="#">Condiciones de Uso</a></li>
+          <li><a href="#">Directiva de Reclamos</a></li>
+          <li><a href="#">Medios de pago</a></li>
+          <li><a href="#">Condiciones de Uso del sitio web</a></li>
+        </ul>
+
+        <p class="footer-title">Atención de Reclamos y Solicitudes en Línea</p>
+        <ul class="footer-list">
+          <li><a href="#">Compara tu plan</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="col-md-4 mb-4">
+        <p class="footer-title">Tus derechos</p>
+        <ul class="footer-list">
+          <li><a href="#">Entérate de tus derechos</a></li>
+          <li><a href="#">Reglamento de Neutralidad</a></li>
+          <li><a href="#">Política de Privacidad en Redes Sociales</a></li>
+          <li><a href="#">Política de Privacidad del Sitio Web</a></li>
+          <li><a href="#">Devolución por interrupciones</a></li>
+          <li><a href="#">Canal de denuncias</a></li>
+        </ul>
+
+        <p class="footer-title">Institucional</p>
+        <ul class="footer-list">
+          <li><a href="#">Trabaja con nosotros</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="col-md-4 mb-4 d-flex flex-column align-items-start">
+        <div class="social-icons d-none d-md-flex mb-3">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <p class="footer-title">Dirección Central</p>
+        <ul class="footer-info">
+          <li><strong>Dirección:</strong> pagina de atencion web, agente autorizado</li>
+          <li><strong>Teléfono:</strong> +51 907800704</li>
+          <li><strong>Email:</strong> contacto@win.net.pe</li>
+        </ul>
+
+        <div class="d-flex flex-wrap gap-2 mt-3 w-100">
+          
+          <a href="tel:017073000" class="btn btn-llamada">
+            <i class="fas fa-phone"></i> LLÁMANOS AL +51907800704
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sección final -->
+<div class="footer-end">
+    <hr>
+    <i class="fas fa-triangle-exclamation"></i>
+    <span>Esta página es agente autorizado de WIN, creado por MARSEXELEN, ayudando con la IA para poder dar una mejor atención a los clientes de WIN</span>
+</div>
+<a href="https://wa.me/51907800704" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+    <div class="whatsapp-text">
+      <small>Escríbenos al</small>
+      <strong>WhatsApp</strong>
+    </div>
+  </a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* Menú hamburguesa */
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('open');
+});
+
+/* Carrusel imágenes */
+const track = document.getElementById('track');
+const slidesImg = document.querySelectorAll('.slide-img');
+const totalSlides = slidesImg.length;
+let indexImg = 0;
+const firstClone = slidesImg[0].cloneNode(true);
+track.appendChild(firstClone);
+
+function nextSlideImg() {
+  indexImg++;
+  track.style.transform = `translateX(-${indexImg * 100}%)`;
+  if (indexImg === totalSlides) {
+    setTimeout(() => {
+      track.style.transition = 'none';
+      indexImg = 0;
+      track.style.transform = `translateX(0)`;
+      void track.offsetWidth;
+      track.style.transition = 'transform 0.8s ease';
+    }, 800);
+  }
+}
+setInterval(nextSlideImg, 4000);
+
+/* Slider de texto */
+const slider = document.getElementById("slider");
+const slides = document.querySelectorAll(".slide-info");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const dotsContainer = document.getElementById("dots");
+let index = 0, autoPlay;
+
+slides.forEach((_,i)=>{
+  const dot=document.createElement("span");
+  dot.classList.add("dot");
+  if(i===0) dot.classList.add("active");
+  dot.addEventListener("click",()=>{ index=i; updateSlider(); resetAutoPlay(); });
+  dotsContainer.appendChild(dot);
+});
+const dots=document.querySelectorAll(".dot");
+
+function updateSlider(){
+  const slideWidth = slides[0].getBoundingClientRect().width;
+  slider.style.transform=`translateX(${-index*slideWidth}px)`;
+  dots.forEach(d=>d.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+function nextSlide(){ index=(index+1)%slides.length; updateSlider(); }
+function prevSlide(){ index=(index-1+slides.length)%slides.length; updateSlider(); }
+function resetAutoPlay(){ clearInterval(autoPlay); autoPlay=setInterval(nextSlide,2000); }
+
+prevBtn.addEventListener("click",()=>{ prevSlide(); resetAutoPlay(); });
+nextBtn.addEventListener("click",()=>{ nextSlide(); resetAutoPlay(); });
+resetAutoPlay();
+window.addEventListener("resize", updateSlider);
+
+/* ======= Evitar clic derecho y copiar contenido ======= */
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('copy', event => event.preventDefault());
+document.addEventListener('cut', event => event.preventDefault());
+document.addEventListener('selectstart', event => event.preventDefault());
+</script>
+
+</body>
+</html>
+
