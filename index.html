@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -129,6 +128,29 @@ nav { height: 100%; flex: 1; display: flex; justify-content: flex-end; align-ite
   text-transform: uppercase;
 }
 
+/* Ajustes para pantallas móviles */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+  }
+
+  .whatsapp-icon {
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+  }
+
+  .whatsapp-text small {
+    font-size: 14px;
+  }
+
+  .whatsapp-text strong {
+    font-size: 20px;
+  }
+}
+
 /* ======= VISTA MÓVIL ======= */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
@@ -239,10 +261,9 @@ footer a:hover { color: #FF4500; }
 .footer-end * { font-family: Arial, sans-serif !important; font-weight: normal !important; }
 
 /* ======= Responsive ajustes botones ======= */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .social-icons { justify-content: center; margin-top: 10px; margin-bottom: 20px; }
   .d-flex.flex-wrap.gap-2.mt-3 { flex-direction: column; gap: 10px; align-items: center; }
-  .btn-whatsapp { width: auto !important; max-width: 260px; }
   .btn-llamada { width: 100%; }
 }
 
@@ -401,7 +422,7 @@ Nuestra red propia de fibra óptica bajo arquitectura GPON, está en constante c
 
         <div class="d-flex flex-wrap gap-2 mt-3 w-100">
           
-          <a href="tel:017073000" class="btn btn-llamada">
+          <a href="tel:+51907800704" class="btn btn-llamada">
             <i class="fas fa-phone"></i> LLÁMANOS AL +51907800704
           </a>
         </div>
@@ -499,4 +520,5 @@ document.addEventListener('selectstart', event => event.preventDefault());
 
 </body>
 </html>
+
 
