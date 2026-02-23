@@ -196,8 +196,23 @@ nav { height: 100%; flex: 1; display: flex; justify-content: flex-end; align-ite
   margin-top:20px;
 }
 .title h1 .wing{ color:#2b1b10; }
+ /* css de imagen de iconos deportibos */
+.imagen {
+  display: flex;
+  justify-content: center;  /* centra horizontal */
+  align-items: center;      /* centra vertical */
+  width: 100%;
+          /* ocupa toda la altura de la pantalla */
+}
 
-.slider-wrap{
+.imagen_1 img {
+  width: 80%;        /* tamaño en porcentaje */
+  max-width: 800px;  /* límite en pantallas grandes */
+  height: auto;      /* mantiene proporción */
+  display: block;
+}
+
+  .slider-wrap{
   position:relative;
   margin-top:20px;
   overflow:hidden;
@@ -313,11 +328,16 @@ img {
   </div>
 </div>
 
-<!-- Slider de texto -->
+<!-- Slider de texto titulo -->
 <div class="hero">
   <div class="title">
     <h1>Aprende más sobre el Internet <span class="wing">100% fibra óptica de WIN</span></h1>
+  </div> 
+<!-- imagen debajo de titulo con logos deportivos -->
+  <div class="imagen">
+    <div class="imagen_1"><img src="imagen.jpg"></div>
   </div>
+
   <div class="slider-wrap">
     <div class="slider-info" id="slider">
       <div class="slide-info">
@@ -519,5 +539,6 @@ document.addEventListener('selectstart', event => event.preventDefault());
 
 </body>
 </html>
+
 
 
